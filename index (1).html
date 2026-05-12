@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EmbedMart – Custom ECE Projects</title>
+<meta name="description" content="Order custom Embedded Systems, IoT, and Robotics projects built by an experienced ECE engineer. Full code, documentation, and hardware delivery.">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#ffffff;--bg:#f7f8fa;--bg2:#eef0f4;--surface:#ffffff;
+  --border:#e2e5eb;--border2:#cdd1d9;
+  --text:#111827;--text2:#4b5563;--text3:#9ca3af;
+  --blue:#1d4ed8;--blue-lt:#eff4ff;--blue-md:#bfdbfe;
+  --teal:#0d9488;--teal-lt:#f0fdfa;
+  --amber:#b45309;--amber-lt:#fffbeb;
+  --violet:#7c3aed;--violet-lt:#f5f3ff;
+  --green:#15803d;--red:#dc2626;
+  --r:10px;--rl:16px;
+  --sh:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);
+  --sh-md:0 4px 12px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.04);
+  --sh-lg:0 12px 32px rgba(0,0,0,.1),0 4px 8px rgba(0,0,0,.05);
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* TOPBAR */
+.topbar{background:#1d2939;color:#fff;text-align:center;font-size:.78rem;padding:.45rem 1rem;letter-spacing:.2px}
+.topbar strong{color:#fbbf24}
+
+/* NAV */
+nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:var(--sh)}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;height:64px;gap:2rem}
+.logo{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-.5px;flex-shrink:0}
+.logo em{font-style:normal;color:var(--blue)}
+.nav-links{display:flex;gap:.2rem;flex:1}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.875rem;font-weight:500;padding:.4rem .8rem;border-radius:6px;transition:all .15s}
+.nav-links a:hover{color:var(--blue);background:var(--blue-lt)}
+.nav-right{display:flex;align-items:center;gap:.75rem;margin-left:auto}
+.nav-contact{font-size:.8rem;color:var(--text3)}
+.nav-cta{background:var(--blue);color:#fff;padding:.5rem 1.2rem;border-radius:8px;font-weight:600;font-size:.85rem;text-decoration:none;white-space:nowrap;transition:background .15s;box-shadow:0 1px 3px rgba(29,78,216,.3)}
+.nav-cta:hover{background:#1e40af}
+
+/* HERO */
+.hero{background:var(--white);border-bottom:1px solid var(--border)}
+.hero-inner{max-width:1140px;margin:0 auto;padding:4.5rem 2rem 4rem;display:grid;grid-template-columns:1fr 420px;gap:5rem;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;background:var(--blue-lt);color:var(--blue);font-size:.75rem;font-weight:700;padding:.3rem .75rem;border-radius:20px;margin-bottom:1.2rem;letter-spacing:.4px;text-transform:uppercase}
+.hero h1{font-family:'Fraunces',serif;font-size:2.9rem;line-height:1.15;font-weight:700;letter-spacing:-1.5px;color:var(--text);margin-bottom:1.1rem}
+.hero h1 em{font-style:italic;color:var(--blue)}
+.hero-sub{font-size:1.05rem;color:var(--text2);line-height:1.75;margin-bottom:2rem;max-width:480px}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-blue{background:var(--blue);color:#fff;padding:.75rem 1.6rem;border-radius:8px;font-weight:600;font-size:.9rem;text-decoration:none;border:none;cursor:pointer;font-family:inherit;transition:background .15s;box-shadow:0 2px 6px rgba(29,78,216,.25);display:inline-block}
+.btn-blue:hover{background:#1e40af}
+.btn-outline{background:#fff;color:var(--text);padding:.75rem 1.6rem;border-radius:8px;font-weight:500;font-size:.9rem;text-decoration:none;border:1.5px solid var(--border2);cursor:pointer;font-family:inherit;transition:all .15s;display:inline-block}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.trust-row{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text3);font-weight:500}
+.trust-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
+
+/* HERO CARD */
+.hero-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);box-shadow:var(--sh-lg);overflow:hidden}
+.hc-header{background:var(--bg);border-bottom:1px solid var(--border);padding:.9rem 1.25rem;display:flex;align-items:center;gap:10px}
+.dots{display:flex;gap:5px}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot-r{background:#ff5f57}.dot-y{background:#febc2e}.dot-g{background:#28c840}
+.hc-title{font-size:.8rem;font-weight:600;color:var(--text2);margin:0 auto}
+.card-list{padding:.5rem}
+.card-row{display:flex;align-items:center;gap:10px;padding:.7rem .75rem;border-radius:8px}
+.card-row:hover{background:var(--bg)}
+.c-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.ci-b{background:var(--blue-lt)}.ci-t{background:var(--teal-lt)}.ci-v{background:var(--violet-lt)}.ci-a{background:var(--amber-lt)}
+.c-info{flex:1;min-width:0}
+.c-name{font-size:.83rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c-cat{font-size:.72rem;color:var(--text3)}
+.c-price{font-size:.9rem;font-weight:700;color:var(--blue)}
+.c-divider{height:1px;background:var(--border);margin:0 .75rem}
+.card-stats{display:flex;padding:.75rem;gap:8px}
+.cs{flex:1;background:var(--bg);border-radius:8px;padding:.55rem;text-align:center}
+.cs-n{font-size:1rem;font-weight:700;color:var(--text)}
+.cs-l{font-size:.68rem;color:var(--text3);margin-top:1px}
+
+/* SECTION BASE */
+.section{padding:4rem 2rem}
+.section-inner{max-width:1140px;margin:0 auto}
+.s-label{font-size:.72rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--blue);margin-bottom:.4rem}
+.s-title{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:700;letter-spacing:-.5px;color:var(--text);margin-bottom:.4rem}
+.s-sub{font-size:.95rem;color:var(--text2);margin-bottom:2.5rem}
+
+/* HOW */
+.how{background:var(--bg);border-top:1px solid var(--border)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative}
+.steps::before{content:'';position:absolute;top:27px;left:calc(12.5% + 27px);right:calc(12.5% + 27px);height:2px;background:repeating-linear-gradient(90deg,var(--blue-md) 0,var(--blue-md) 10px,transparent 10px,transparent 20px)}
+.step{text-align:center}
+.step-num{width:54px;height:54px;border-radius:50%;background:var(--blue);color:#fff;font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;box-shadow:0 0 0 6px var(--blue-lt)}
+.step h3{font-size:.9rem;font-weight:700;margin-bottom:.35rem}
+.step p{font-size:.8rem;color:var(--text2);line-height:1.55}
+
+/* CATEGORIES */
+.cats{background:var(--white);border-top:1px solid var(--border)}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.cat-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--rl);padding:1.5rem 1.2rem;transition:all .2s}
+.cat-card:hover{border-color:var(--blue);background:var(--blue-lt);box-shadow:var(--sh-md);transform:translateY(-2px)}
+.cat-ico{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1rem}
+.cat-card h3{font-size:.92rem;font-weight:700;margin-bottom:.3rem}
+.cat-card p{font-size:.78rem;color:var(--text2);line-height:1.5}
+.cat-count{display:inline-block;background:var(--blue-lt);color:var(--blue);font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:20px;margin-top:.6rem}
+
+/* PROJECTS */
+.projects{background:var(--bg);border-top:1px solid var(--border)}
+.filter-bar{display:flex;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap;align-items:center}
+.fl{font-size:.8rem;font-weight:600;color:var(--text2);margin-right:.5rem}
+.fbtn{background:var(--white);color:var(--text2);border:1.5px solid var(--border);padding:.38rem 1rem;border-radius:20px;font-size:.82rem;font-weight:500;cursor:pointer;font-family:inherit;transition:all .15s}
+.fbtn.on,.fbtn:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.pcard{background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:all .2s;display:flex;flex-direction:column}
+.pcard:hover{border-color:var(--blue);box-shadow:var(--sh-lg);transform:translateY(-3px)}
+.pt{padding:1.25rem 1.25rem 0}
+.ptags{display:flex;gap:6px;margin-bottom:.75rem}
+.badge{font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.3px}
+.b-emb{background:var(--blue-lt);color:var(--blue)}
+.b-iot{background:var(--teal-lt);color:var(--teal)}
+.b-rob{background:var(--violet-lt);color:var(--violet)}
+.b-beg{background:#f0fdf4;color:#15803d}
+.b-mid{background:#fffbeb;color:#b45309}
+.b-adv{background:#fff1f2;color:#dc2626}
+.pcard h3{font-size:.92rem;font-weight:700;line-height:1.4;margin-bottom:.5rem}
+.pdesc{font-size:.8rem;color:var(--text2);line-height:1.55;margin-bottom:1rem}
+.pdiv{height:1px;background:var(--border)}
+.pb{padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.pp{font-size:1.05rem;font-weight:700}
+.pp small{font-size:.72rem;color:var(--text3);font-weight:400;display:block;margin-top:-2px}
+.obtn{background:var(--blue);color:#fff;border:none;padding:.45rem 1.1rem;border-radius:7px;font-size:.8rem;font-weight:600;cursor:pointer;font-family:inherit;transition:background .15s}
+.obtn:hover{background:#1e40af}
+
+/* ORDER */
+.order-wrap{background:var(--white);border-top:1px solid var(--border)}
+.order-inner{max-width:900px;margin:0 auto;padding:4rem 2rem}
+.order-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:start}
+.oi h2{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:700;letter-spacing:-.5px;margin-bottom:.75rem}
+.oi p{font-size:.88rem;color:var(--text2);line-height:1.7;margin-bottom:1.5rem}
+.ii{display:flex;gap:10px;align-items:flex-start;margin-bottom:1rem}
+.ii-ico{width:32px;height:32px;border-radius:8px;background:var(--blue-lt);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;margin-top:1px}
+.ii-text strong{display:block;font-size:.85rem;font-weight:600}
+.ii-text span{font-size:.78rem;color:var(--text2)}
+.form-box{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--rl);padding:1.75rem}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.fg{display:flex;flex-direction:column;gap:.35rem}
+.fg.full{grid-column:1/-1}
+.fg label{font-size:.78rem;font-weight:700;color:var(--text2);letter-spacing:.2px}
+.fg input,.fg select,.fg textarea{background:var(--white);border:1.5px solid var(--border);color:var(--text);padding:.6rem .85rem;border-radius:8px;font-size:.875rem;font-family:inherit;outline:none;transition:border-color .15s;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,78,216,.08)}
+.fg textarea{resize:vertical;min-height:90px;line-height:1.5}
+.fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .75rem center;padding-right:2rem}
+.submit-btn{width:100%;background:var(--blue);color:#fff;border:none;padding:.85rem;border-radius:8px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s;margin-top:.25rem}
+.submit-btn:hover{background:#1e40af}
+.form-note{font-size:.75rem;color:var(--text3);text-align:center;margin-top:.6rem}
+.success-banner{display:none;background:#f0fdf4;border:1.5px solid #86efac;border-radius:8px;padding:.9rem 1.1rem;margin-top:.75rem;font-size:.85rem;color:#15803d;text-align:center;font-weight:600}
+
+/* FOOTER */
+footer{background:#1d2939;color:#d1d5db;padding:3rem 2rem 2rem}
+.footer-inner{max-width:1140px;margin:0 auto}
+.ft{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+.fb .lf{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:.75rem}
+.lf em{font-style:normal;color:#60a5fa}
+.fb p{font-size:.82rem;line-height:1.7;color:#9ca3af;max-width:260px}
+.fc h4{font-size:.8rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.8px;margin-bottom:.9rem}
+.fc a,.fc p{display:block;font-size:.82rem;color:#9ca3af;text-decoration:none;margin-bottom:.5rem;transition:color .15s}
+.fc a:hover{color:#60a5fa}
+.fdiv{height:1px;background:#374151;margin-bottom:1.5rem}
+.fb2{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:#6b7280}
+.fbadge{background:#374151;color:#d1d5db;padding:3px 10px;border-radius:4px;font-size:.72rem;font-weight:600}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-card{max-width:100%}
+  .hero h1{font-size:2.2rem}
+  .steps{grid-template-columns:1fr 1fr;gap:2rem}
+  .steps::before{display:none}
+  .cat-grid{grid-template-columns:1fr 1fr}
+  .proj-grid{grid-template-columns:1fr 1fr}
+  .order-grid{grid-template-columns:1fr}
+  .ft{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .nav-inner{padding:0 1rem}
+  .nav-links,.nav-contact{display:none}
+  .hero-inner,.section,.order-inner{padding-left:1.2rem;padding-right:1.2rem}
+  .hero h1{font-size:1.9rem}
+  .cat-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .ft{grid-template-columns:1fr}
+  footer{padding:2rem 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">⚡ <strong>Limited slots this month</strong> — Reply guaranteed within 24 hours · WhatsApp: +91 87906 17004</div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#">Embed<em>Mart</em></a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#categories">Categories</a>
+      <a href="#projects">Projects</a>
+      <a href="#order">Order</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-contact">📱 +91 87906 17004</span>
+      <a href="#order" class="nav-cta">Order a Project →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">⚡ ECE Engineer · </div>
+      <h1>Your <em>ECE Projects</em>,<br>Done Right.</h1>
+      <p class="hero-sub">Get custom Embedded Systems, IoT, and Robotics projects built by a specialist engineer — with full documentation, source code, and working hardware delivery.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-blue">Browse All Projects</a>
+        <a href="#order" class="btn-outline">Request Custom Project</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item"><div class="trust-dot"></div>Working code &amp; schematics</div>
+        <div class="trust-item"><div class="trust-dot"></div>24h guaranteed response</div>
+        <div class="trust-item"><div class="trust-dot"></div>Full support included</div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-header">
+        <div class="dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+        <div class="hc-title">Available Projects</div>
+      </div>
+      <div class="card-list">
+        <div class="card-row"><div class="c-icon ci-t">🌿</div><div class="c-info"><div class="c-name">Smart Irrigation System</div><div class="c-cat">IoT · Intermediate</div></div><div class="c-price">₹1,699</div></div>
+        <div class="c-divider"></div>
+        <div class="card-row"><div class="c-icon ci-b">🤖</div><div class="c-info"><div class="c-name">Line Following Robot</div><div class="c-cat">Robotics · Beginner</div></div><div class="c-price">₹1,199</div></div>
+        <div class="c-divider"></div>
+        <div class="card-row"><div class="c-icon ci-v">📡</div><div class="c-info"><div class="c-name">GPS Vehicle Tracker</div><div class="c-cat">Embedded · Advanced</div></div><div class="c-price">₹2,499</div></div>
+        <div class="c-divider"></div>
+        <div class="card-row"><div class="c-icon ci-a">🏠</div><div class="c-info"><div class="c-name">Home Automation System</div><div class="c-cat">IoT · Intermediate</div></div><div class="c-price">₹1,499</div></div>
+      </div>
+      <div class="card-stats">
+        <div class="cs"><div class="cs-n">50+</div><div class="cs-l">Projects</div></div>
+        <div class="cs"><div class="cs-n">100%</div><div class="cs-l">Working</div></div>
+        <div class="cs"><div class="cs-n">24h</div><div class="cs-l">Response</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how section" id="how">
+  <div class="section-inner">
+    <div class="s-label">Simple process</div>
+    <div class="s-title">How It Works</div>
+    <div class="s-sub">Order your project in 4 easy steps — no technical knowledge needed to get started.</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h3>Browse &amp; Choose</h3><p>Pick from our ready-made project list or describe your custom project idea.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Fill the Form</h3><p>Submit your name, project details, budget, and deadline in under 2 minutes.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Get a Quote</h3><p>I'll reply within 24 hours with a clear price, timeline, and what's included.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Receive &amp; Present</h3><p>Get your working project with code, circuit diagrams, and a full report.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="cats section" id="categories">
+  <div class="section-inner">
+    <div class="s-label">What we build</div>
+    <div class="s-title">Project Categories</div>
+    <div class="s-sub">All projects include full source code, schematic diagrams, and documentation report.</div>
+    <div class="cat-grid">
+      <div class="cat-card"><div class="cat-ico ci-b">🔌</div><h3>Embedded Systems</h3><p>Arduino, STM32, AVR, 8051, ARM-based microcontroller projects.</p><div class="cat-count">18 projects</div></div>
+      <div class="cat-card"><div class="cat-ico ci-t">🌐</div><h3>IoT &amp; Smart Devices</h3><p>ESP8266, ESP32, MQTT, Blynk, and cloud dashboard projects.</p><div class="cat-count">14 projects</div></div>
+      <div class="cat-card"><div class="cat-ico ci-v">🤖</div><h3>Robotics</h3><p>Line followers, arm robots, obstacle avoiders, and autonomous bots.</p><div class="cat-count">11 projects</div></div>
+      <div class="cat-card"><div class="cat-ico ci-a">📡</div><h3>Communication</h3><p>RF, Bluetooth, LoRa, Zigbee, and GSM communication projects.</p><div class="cat-count">9 projects</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects section" id="projects">
+  <div class="section-inner">
+    <div class="s-label">Ready to order</div>
+    <div class="s-title">Available Projects</div>
+    <div class="s-sub">Click "Order Now" on any card — the project name fills the form automatically.</div>
+    <div class="filter-bar">
+      <span class="fl">Filter by:</span>
+      <button class="fbtn on" onclick="fp('all',this)">All Projects</button>
+      <button class="fbtn" onclick="fp('emb',this)">Embedded</button>
+      <button class="fbtn" onclick="fp('iot',this)">IoT</button>
+      <button class="fbtn" onclick="fp('rob',this)">Robotics</button>
+    </div>
+    <div class="proj-grid" id="pg"></div>
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<section class="order-wrap" id="order">
+  <div class="order-inner">
+    <div class="order-grid">
+      <div class="oi">
+        <div class="s-label">Get started</div>
+        <h2>Place Your Order</h2>
+        <p>Fill the form and I'll reply personally within 24 hours with a detailed quote, component list, and delivery timeline.</p>
+        <div class="ii"><div class="ii-ico">⚡</div><div class="ii-text"><strong>Fast turnaround</strong><span>Most projects delivered in 5–10 days</span></div></div>
+        <div class="ii"><div class="ii-ico">📦</div><div class="ii-text"><strong>What you get</strong><span>Working hardware + code + report + diagrams</span></div></div>
+        <div class="ii"><div class="ii-ico">🤝</div><div class="ii-text"><strong>Full support</strong><span>Post-delivery help for viva &amp; presentation</span></div></div>
+        <div class="ii"><div class="ii-ico">💬</div><div class="ii-text"><strong>WhatsApp support</strong><span>Direct contact — no middlemen</span></div></div>
+      </div>
+      <div>
+        <form class="form-box" onsubmit="handleSubmit(event)">
+          <div class="frow">
+            <div class="fg"><label>Full Name *</label><input type="text" name="name" id="fname" placeholder="e.g. Arjun Kumar" required></div>
+            <div class="fg"><label>Email Address *</label><input type="email" name="email" id="femail" placeholder="you@college.edu" required></div>
+            <div class="fg"><label>WhatsApp / Phone</label><input type="text" name="phone" id="fphone" placeholder="+91 9876543210"></div>
+            <div class="fg"><label>College / University</label><input type="text" name="college" id="fcollege" placeholder="Anna University, Chennai"></div>
+            <div class="fg"><label>Project Category *</label>
+              <select name="category" id="fcat" required>
+                <option value="">Select a category…</option>
+                <option>Embedded Systems</option>
+                <option>IoT &amp; Smart Devices</option>
+                <option>Robotics</option>
+                <option>Communication Systems</option>
+                <option>Custom / Other</option>
+              </select>
+            </div>
+            <div class="fg"><label>Budget Range</label>
+              <select name="budget" id="fbudget">
+                <option value="">Select budget…</option>
+                <option>₹500 – ₹1,500</option>
+                <option>₹1,500 – ₹3,000</option>
+                <option>₹3,000 – ₹6,000</option>
+                <option>₹6,000+</option>
+              </select>
+            </div>
+            <div class="fg full"><label>Project Name (if known)</label><input type="text" name="project" id="fpn" placeholder="e.g. Smart Irrigation System — or leave blank for a recommendation"></div>
+            <div class="fg full"><label>Requirements &amp; Deadline</label><textarea name="requirements" id="freq" placeholder="Describe what you need — features, components, submission deadline, college guidelines…"></textarea></div>
+          </div>
+          <button type="submit" class="submit-btn" id="sbtn">Send Order Request →</button>
+          <p class="form-note">🔒 Your info is private · No spam · Direct reply from the engineer</p>
+          <div class="success-banner" id="sb">✅ Order received! Opening WhatsApp to connect you directly. I'll reply within 24 hours.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="ft">
+      <div class="fb">
+        <div class="lf">Embed<em>Mart</em></div>
+        <p>Custom ECE projects by a specialist engineer — Embedded Systems, IoT &amp; Robotics, delivered with full documentation and support.</p>
+      </div>
+      <div class="fc">
+        <h4>Categories</h4>
+        <a href="#categories">Embedded Systems</a>
+        <a href="#categories">IoT &amp; Smart Devices</a>
+        <a href="#categories">Robotics</a>
+        <a href="#categories">Communication</a>
+      </div>
+      <div class="fc">
+        <h4>Contact</h4>
+        <p>📧 tradewithpavan1@gmail.com</p>
+        <p>📱 +91 87906 17004</p>
+        <p>📍 Tamil Nadu, India</p>
+        <p>🕐 Mon–Sat, 9am–8pm IST</p>
+      </div>
+    </div>
+    <div class="fdiv"></div>
+    <div class="fb2">
+      <span>© 2026 EmbedMart · All rights reserved</span>
+      <span class="fbadge">ECE Engineer · 5+ Years</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const projects=[
+{
+cat:'emb',
+icon:'🌡️',
+title:'Digital Thermometer with LCD',
+desc:'LM35 sensor with 16x2 LCD display, real-time temperature reading with buzzer alarm.',
+price:'₹1299/-',
+del:'10 days',
+diff:'beg',
+full:'This project measures temperature using an LM35 sensor and displays it on an LCD screen with buzzer alert system.',
+features:[
+'Real-time temperature monitoring',
+'LCD display output',
+'Buzzer warning system',
+'Compact embedded design',
+],
+components:[
+'Arduino UNO',
+'LM35 Sensor',
+'16x2 LCD',
+'Buzzer',
+'Power Supply',
+'Miscellaneous'
+]
+},
+
+{
+cat:'iot',
+icon:'🏠',
+title:'Smart Home Automation',
+desc:'Control lights and fans via ESP8266 and Blynk app over WiFi from anywhere.',
+price:'₹1,999',
+del:'10 days',
+diff:'mid',
+full:'An IoT-based automation system that controls home appliances wirelessly using smartphone and WiFi.',
+features:[
+'Mobile app control',
+'WiFi connectivity',
+'Remote appliance switching',
+'Smart automation'
+],
+components:[
+'ESP32',
+'Relay Modules',
+'Blynk App',
+'Power Supply',
+'Dc motor ',
+'propeller',
+'leds',
+'Miscellaneous'
+]
+},
+
+{
+cat:'rob',
+icon:'🤖',
+title:'Line Following Robot',
+desc:'IR sensor based autonomous robot with PID control for smooth path tracking.',
+price:'model 1:₹1,999 ; model 2:₹2,699',
+del:'10 days',
+diff:'mid',
+full:'An autonomous robot capable of following black lines using IR sensors and motor driver control.',
+features:[
+'Autonomous navigation',
+'IR path detection',
+'Smooth motor control',
+'Robotic movement'
+],
+components:[
+'Arduino UNO',
+'IR Sensors',
+'L298N Driver',
+'DC Motors',
+'Robot Chassis',
+'power supply',
+'Miscellaneous'
+]
+},
+
+{
+cat:'emb',
+icon:'🗳️',
+title:'Digital Voting Machine',
+desc:'Secure multi-candidate voting system with LED indicators and reset.',
+price:'₹1,099',
+del:'10 days',
+diff:'beg',
+full:'Electronic voting machine using embedded systems for secure and simple vote collection.',
+features:[
+'Multiple candidate support',
+'Secure voting logic',
+'LED vote indicators',
+'Reset functionality'
+],
+components:[
+'Arduino UNO',
+'Push Buttons',
+'LED Indicators',
+'Power Supply',
+'casing',
+'Miscellaneous'
+]
+},
+
+{
+cat:'iot',
+icon:'💨',
+title:'Air Quality Monitor',
+desc:'MQ-135 sensor with OLED display and cloud dashboard monitoring.',
+price:'₹1,899',
+del:'10 days',
+diff:'adv',
+full:'IoT-based air quality monitoring system with cloud data logging and live AQI display.',
+features:[
+'Air quality detection',
+'Cloud dashboard',
+'Real-time monitoring',
+'OLED display'
+],
+components:[
+'ESP32',
+'MQ135 Sensor',
+'OLED Display',
+'WiFi Module',
+'Miscellaneous'
+]
+},
+
+{
+cat:'rob',
+icon:'🚗',
+title:'Obstacle Avoiding Robot',
+desc:'Ultrasonic sensor robot that navigates automatically without collisions.',
+price:'₹2,099',
+del:'10 days',
+diff:'beg',
+full:'Robot detects and avoids obstacles automatically using ultrasonic sensors.',
+features:[
+'Obstacle detection',
+'Autonomous movement',
+'Motor control',
+'Collision avoidance'
+],
+components:[
+'Arduino UNO',
+'HC-SR04 Sensor',
+'Motor Driver',
+'DC Motors',
+'robot chassis',
+'Miscellaneous'
+]
+},
+
+{
+cat:'emb',
+icon:'📡',
+title:'GPS Vehicle Tracker',
+desc:'SIM808 live location tracking with SMS and Google Maps support.',
+price:'₹3,299',
+del:'10 days',
+diff:'adv',
+full:'Advanced GPS tracking system with GSM communication and live map tracking.',
+features:[
+'Live GPS tracking',
+'SMS alerts',
+'Google Maps integration',
+'Geofence support'
+],
+components:[
+'SIM808 Module',
+'GPS Antenna',
+'GSM Module',
+'Microcontroller',
+'power supply',
+'Miscellaneous'
+]
+},
+
+{
+cat:'iot',
+icon:'🌿',
+title:'Smart Irrigation System',
+desc:'Automatic watering using soil moisture sensor and ESP32.',
+price:'₹1,899',
+del:'10 days',
+diff:'mid',
+full:'Smart irrigation system that waters plants automatically based on soil moisture levels.',
+features:[
+'Automatic watering',
+'Moisture sensing',
+'ESP32 control',
+'Mobile notifications'
+],
+components:[
+'ESP32',
+'Soil Moisture Sensor',
+'Relay Module',
+'Water Pump',
+'power supply',
+'Miscellaneous'
+]
+},
+
+{
+cat:'rob',
+icon:'🦾',
+title:'4-DOF Robotic Arm',
+desc:'Servo-controlled robotic arm with Bluetooth control.',
+price:'₹5,599',
+del:'12 days',
+diff:'adv',
+full:'A robotic arm capable of pick-and-place operations with Bluetooth and joystick control.',
+features:[
+'Bluetooth control',
+'Servo movement',
+'Pick and place',
+'Joystick operation'
+],
+components:[
+'Arduino UNO',
+'Servo Motors',
+'Bluetooth Module',
+'Joystick Module',
+'connectors',
+'drivers',
+'power supply',
+'Miscellaneous'
+
+]
+},
+{
+cat:'iot',
+icon:'📡',
+title:'Digital notice board',
+desc:'A Digital Notice Board is an electronic display system used to show real-time messages and announcements wirelessly.',
+price:'₹1,299',
+del:'10 days',
+diff:'mid',
+full:'A Digital Notice Board is an electronic display system used to show real-time messages and announcements wirelessly. It uses ESP32 and WiFi technology to update text through a mobile app instantly.',
+features:[
+'Wireless text updates',
+'Mobile app control',
+'Real-time display',
+'Scrolling messages'
+],
+components:[
+'ESP32',
+'LED Matrix/LCD',
+'WiFi Module',
+'Power Supply',
+'Miscellaneous'
+
+]
+},
+{
+cat:'iot',
+icon:'🪪',
+title:'Smart Attendance System',
+desc:'RFID/Fingerprint based attendance monitoring system with SMS alerts and LCD display.',
+price:'₹5,500',
+del:'10 days',
+diff:'mid',
+full:'An IoT-based smart attendance system using RFID or fingerprint authentication for automatic attendance logging and monitoring.',
+features:[
+'Automatic attendance',
+'Database logging',
+'SMS alerts',
+'LCD display'
+],
+components:[
+'ESP32',
+'RFID/Fingerprint Sensor',
+'LCD Display',
+'WiFi Module',
+'Power Supply',
+'Miscellaneous'
+]
+},
+
+{
+cat:'iot',
+icon:'🔐',
+title:'Face Recognition Door Lock',
+desc:'AI based smart security locking system with face detection and mobile notifications.',
+price:'₹7,500',
+del:'12 days',
+diff:'adv',
+full:'An AI powered smart door lock system that unlocks automatically using facial recognition and logs visitor details.',
+features:[
+'Face detection',
+'Smart unlocking',
+'Visitor logging',
+'Mobile notification'
+],
+components:[
+'ESP32-CAM',
+'Servo Motor',
+'Camera Module',
+'Buzzer',
+'Power Supply',
+'Miscellaneous'
+]
+},
+
+{
+cat:'iot',
+icon:'🅿️',
+title:'Smart Parking System',
+desc:'Automatic vehicle parking slot detection and gate control system.',
+price:'₹5,000',
+del:'10 days',
+diff:'mid',
+full:'A smart parking management system that detects empty parking slots and controls vehicle entry automatically.',
+features:[
+'Slot detection',
+'Live monitoring',
+'Automated gate',
+'LCD indication'
+],
+components:[
+'Ultrasonic Sensors',
+'ESP32',
+'Servo Motor',
+'LCD Display',
+'Power Supply',
+'Miscellaneous'
+]
+},
+
+{
+cat:'iot',
+icon:'⛅',
+title:'IoT Weather Monitoring',
+desc:'Real-time weather monitoring with cloud analytics and mobile dashboard.',
+price:'₹3,000',
+del:'8 days',
+diff:'beg',
+full:'An IoT weather station capable of monitoring environmental conditions and uploading live data to the cloud.',
+features:[
+'Temperature monitoring',
+'Humidity monitoring',
+'Cloud analytics',
+'Mobile dashboard'
+],
+components:[
+'ESP32',
+'DHT11 Sensor',
+'OLED Display',
+'WiFi Module',
+'Power Supply',
+'Miscellaneous'
+]
+},
+
+{
+cat:'iot',
+icon:'🗑️',
+title:'Smart Garbage Monitoring',
+desc:'Smart dustbin monitoring system for smart city waste management.',
+price:'₹4,500',
+del:'10 days',
+diff:'mid',
+full:'A smart garbage monitoring system that detects dustbin fill levels and sends alerts automatically.',
+features:[
+'Garbage level detection',
+'SMS alerts',
+'Route optimization',
+'Overflow prevention'
+],
+components:[
+'ESP32',
+'Ultrasonic Sensor',
+'GSM Module',
+'Battery',
+'Power Supply',
+'Miscellaneous'
+]
+},
+{
+cat:'rob',
+icon:'🔥',
+title:'Fire Fighting Robot',
+desc:'Autonomous robot capable of detecting and extinguishing fire automatically.',
+price:'₹5,500',
+del:'12 days',
+diff:'adv',
+full:'An autonomous robotic system designed to detect fire sources and extinguish them automatically.',
+features:[
+'Fire detection',
+'Automatic extinguishing',
+'Autonomous movement',
+'Alarm system'
+],
+components:[
+'Arduino UNO',
+'Flame Sensor',
+'Water Pump',
+'Motor Driver',
+'Battery',
+'Miscellaneous'
+]
+},
+{
+cat:'rob',
+icon:'🎤',
+title:'Voice Controlled Robot',
+desc:'Robot controlled wirelessly using voice commands.',
+price:'₹5,000',
+del:'10 days',
+diff:'mid',
+full:'A voice-controlled robotic system capable of moving based on spoken commands.',
+features:[
+'Voice commands',
+'Wireless control',
+'Direction control',
+'Obstacle handling'
+],
+components:[
+'Arduino',
+'Bluetooth Module',
+'Motor Driver',
+'Microphone Module',
+'Battery',
+'Miscellaneous'
+]
+},
+{
+cat:'rob',
+icon:'🖐️',
+title:'Gesture Controlled Robot',
+desc:'Wireless robot controlled using hand gestures and accelerometer.',
+price:'₹4,500',
+del:'10 days',
+diff:'mid',
+full:'A gesture-based robotic system that responds to hand movements in real time.',
+features:[
+'Hand gesture control',
+'Wireless communication',
+'Real-time response',
+'Smart movement'
+],
+components:[
+'Arduino',
+'Accelerometer',
+'RF Module',
+'Motor Driver',
+'Battery',
+'Miscellaneous'
+]
+},
+{
+cat:'iot',
+icon:'❤️',
+title:'Heart Rate Monitoring System',
+desc:'IoT-based heartbeat monitoring system with emergency alerts.',
+price:'₹3,000',
+del:'8 days',
+diff:'beg',
+full:'A health monitoring system that measures heart rate and displays live data with emergency alert support.',
+features:[
+'Heartbeat tracking',
+'Health monitoring',
+'LCD display',
+'Emergency alerts'
+],
+components:[
+'Pulse Sensor',
+'ESP32',
+'OLED Display',
+'WiFi Module',
+'Battery',
+'Miscellaneous'
+]
+},
+{
+cat:'iot',
+icon:'⚡',
+title:'Smart Energy Meter',
+desc:'IoT-based energy monitoring system with theft detection and analytics.',
+price:'₹5,000',
+del:'10 days',
+diff:'adv',
+full:'A smart energy meter capable of monitoring electricity usage and providing analytics through a mobile dashboard.',
+features:[
+'Energy monitoring',
+'Theft detection',
+'Mobile dashboard',
+'Usage analytics'
+],
+components:[
+'Current Sensor',
+'ESP32',
+'LCD Display',
+'WiFi Module',
+'Power Supply',
+'Miscellaneous'
+]
+},
+{
+cat:'iot',
+icon:'📢',
+title:'Digital Notice Board',
+desc:'Wireless digital display system for real-time communication.',
+price:'₹1,600',
+del:'7 days',
+diff:'beg',
+full:'A wireless digital notice board capable of displaying scrolling text messages updated through mobile devices.',
+features:[
+'Wireless text updates',
+'Scrolling messages',
+'Mobile integration',
+'Real-time communication'
+],
+components:[
+'ESP32',
+'LED Matrix',
+'WiFi Module',
+'Power Supply',
+'Miscellaneous'
+]
+},
+{
+cat:'emb',
+icon:'🚦',
+title:'Automatic Railway Gate',
+desc:'Automatic railway gate control system with train detection and safety alerts.',
+price:'₹2,800',
+del:'8 days',
+diff:'mid',
+full:'An embedded railway safety system that automatically controls gates when a train approaches.',
+features:[
+'Automatic gate control',
+'Train detection',
+'Accident prevention',
+'Signal indication'
+],
+components:[
+'Arduino UNO',
+'IR Sensors',
+'Servo Motor',
+'Buzzer',
+'Battery',
+'Miscellaneous'
+]
+},
+{
+cat:'rob',
+icon:'📹',
+title:'AI Surveillance Robot',
+desc:'AI powered surveillance robot with live streaming and intruder alerts.',
+price:'₹24,500',
+del:'15 days',
+diff:'adv',
+full:'An AI surveillance robot capable of autonomous navigation, human detection, and live video monitoring.',
+features:[
+'Human detection',
+'Live streaming',
+'Autonomous movement',
+'Intruder alerts'
+],
+components:[
+'Raspberry Pi',
+'Camera Module',
+'Motors',
+'Ultrasonic Sensors',
+'Battery',
+'Miscellaneous'
+]
+},
+{
+cat:'iot',
+icon:'🌊',
+title:'Flood Detection System',
+desc:'Water level monitoring system with emergency alerts and siren activation.',
+price:'₹3,000',
+del:'8 days',
+diff:'mid',
+full:'A flood monitoring system that detects rising water levels and sends emergency notifications automatically.',
+features:[
+'Water level monitoring',
+'Emergency alerts',
+'Siren activation',
+'SMS notification'
+],
+components:[
+'Water Level Sensor',
+'ESP32',
+'GSM Module',
+'Buzzer',
+'Battery',
+'Miscellaneous'
+]
+},
+{
+cat:'iot',
+icon:'💧',
+title:'Smart Water Quality Monitor',
+desc:'IoT-based water quality monitoring system with pollution alerts.',
+price:'₹6,000',
+del:'12 days',
+diff:'adv',
+full:'A smart water quality monitoring system that measures pH and turbidity levels with cloud analytics support.',
+features:[
+'pH monitoring',
+'Turbidity detection',
+'Cloud analytics',
+'Pollution alerts'
+],
+components:[
+'pH Sensor',
+'Turbidity Sensor',
+'ESP32',
+'WiFi Module',
+'Power Supply',
+'Miscellaneous'
+]
+}
+];
+
+const cMap={
+emb:['b-emb','Embedded'],
+iot:['b-iot','IoT'],
+rob:['b-rob','Robotics']
+};
+
+const dMap={
+beg:['b-beg','Beginner'],
+mid:['b-mid','Intermediate'],
+adv:['b-adv','Advanced']
+};
+
+function render(f){
+
+const list=f==='all'
+?projects
+:projects.filter(p=>p.cat===f);
+
+document.getElementById('pg').innerHTML=list.map((p,i)=>`
+
+<div class="pcard">
+
+<div class="pt">
+
+<div class="ptags">
+<span class="badge ${cMap[p.cat][0]}">${cMap[p.cat][1]}</span>
+<span class="badge ${dMap[p.diff][0]}">${dMap[p.diff][1]}</span>
+</div>
+
+<h3>${p.icon} ${p.title}</h3>
+
+<p class="pdesc">${p.desc}</p>
+
+</div>
+
+<div class="pdiv"></div>
+
+<div class="pb">
+
+<div class="pp">
+${p.price}
+<small>Delivery: ${p.del}</small>
+</div>
+
+<button class="obtn" onclick='openProject(${JSON.stringify(p)})'>
+View Details
+</button>
+
+</div>
+
+</div>
+
+`).join('');
+}
+
+function fp(cat,btn){
+document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
+btn.classList.add('on');
+render(cat);
+}
+
+function openProject(p){
+
+const features = p.features.map(f => `<li>${f}</li>`).join('');
+const components = p.components.map(c => `<li>${c}</li>`).join('');
+
+const win = window.open('', '_blank');
+
+win.document.write(`
+
+<html>
+
+<head>
+
+<title>${p.title}</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f7fb;
+padding:40px;
+color:#111;
+line-height:1.6;
+}
+
+.wrap{
+max-width:950px;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:35px;
+border-radius:18px;
+box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+h1{
+margin-top:0;
+font-size:2.2rem;
+}
+
+.price{
+font-size:1.4rem;
+font-weight:bold;
+color:#1d4ed8;
+margin:10px 0 20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:25px;
+}
+
+.box{
+background:#f7f8fa;
+padding:20px;
+border-radius:14px;
+}
+
+ul{
+padding-left:20px;
+}
+
+.btn{
+display:inline-block;
+margin-top:25px;
+background:#1d4ed8;
+color:white;
+text-decoration:none;
+padding:12px 22px;
+border-radius:10px;
+font-weight:bold;
+}
+
+.btn:hover{
+background:#1e40af;
+}
+
+@media(max-width:700px){
+.grid{
+grid-template-columns:1fr;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrap">
+
+<div class="card">
+
+<h1>${p.icon} ${p.title}</h1>
+
+<div class="price">${p.price}</div>
+
+<p>${p.full}</p>
+
+<div class="grid">
+
+<div class="box">
+<h3>Features</h3>
+<ul>${features}</ul>
+</div>
+
+<div class="box">
+<h3>Components Used</h3>
+<ul>${components}</ul>
+</div>
+
+</div>
+
+<a class="btn"
+href="https://wa.me/918790617004?text=I want the ${encodeURIComponent(p.title)} project">
+Order This Project
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
+
+`);
+
+win.document.close();
+}
+
+function pick(title){
+document.getElementById('fpn').value=title;
+document.getElementById('order').scrollIntoView({
+behavior:'smooth',
+block:'start'
+});
+}
+
+function handleSubmit(e){
+
+e.preventDefault();
+
+const name=document.getElementById('fname').value.trim();
+const email=document.getElementById('femail').value.trim();
+const phone=document.getElementById('fphone').value.trim();
+const college=document.getElementById('fcollege').value.trim();
+const category=document.getElementById('fcat').value.trim();
+const budget=document.getElementById('fbudget').value.trim();
+const project=document.getElementById('fpn').value.trim();
+const req=document.getElementById('freq').value.trim();
+
+const msg=
+`🛒 *New Order — EmbedMart*
+
+👤 *Name:* ${name}
+📧 *Email:* ${email}
+📱 *Phone:* ${phone || 'Not provided'}
+🏫 *College:* ${college || 'Not provided'}
+📂 *Category:* ${category}
+💰 *Budget:* ${budget || 'Not selected'}
+🔧 *Project:* ${project || 'Not specified'}
+
+📝 *Requirements:*
+${req || 'No details provided'}`;
+
+const waURL='https://wa.me/918790617004?text='+encodeURIComponent(msg);
+
+window.open(waURL,'_blank');
+
+document.getElementById('sb').style.display='block';
+
+document.getElementById('sbtn').disabled=true;
+
+document.getElementById('sbtn').textContent='✓ Order Submitted';
+}
+
+render('all');
+</script>
+</body>
+</html>
